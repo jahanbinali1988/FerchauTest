@@ -31,8 +31,6 @@ namespace FerchauTest.Persistence.EntityFramework.Domain.Cars.EntityTypeConfigur
 					.IsRequired(true);
 			});
 
-			builder.HasMany(c => c.Contracts).WithOne(x => x.Car);
-
 			builder.Property(x => x.CreatedAt)
 				.HasDefaultValueSql("SYSDATETIMEOFFSET()");
 

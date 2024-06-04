@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FerchauTest.Persistence.EntityFramework.Migrations
 {
-    public partial class first_edition : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,7 +53,6 @@ namespace FerchauTest.Persistence.EntityFramework.Migrations
                     IsFinished = table.Column<bool>(type: "bit", nullable: false),
                     UsedKilometers = table.Column<int>(type: "int", nullable: false),
                     CustomerId = table.Column<long>(type: "bigint", nullable: false),
-                    CustomerId1 = table.Column<long>(type: "bigint", nullable: true),
                     CarId = table.Column<long>(type: "bigint", nullable: false),
                     CarId1 = table.Column<long>(type: "bigint", nullable: false),
                     DeletedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
@@ -70,12 +69,6 @@ namespace FerchauTest.Persistence.EntityFramework.Migrations
                         principalTable: "Car",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Contract_Customer_CustomerId1",
-                        column: x => x.CustomerId1,
-                        principalTable: "Customer",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -88,11 +81,6 @@ namespace FerchauTest.Persistence.EntityFramework.Migrations
                 name: "IX_Contract_CarId1",
                 table: "Contract",
                 column: "CarId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Contract_CustomerId1",
-                table: "Contract",
-                column: "CustomerId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Contract_Id",
@@ -113,10 +101,10 @@ namespace FerchauTest.Persistence.EntityFramework.Migrations
                 name: "Contract");
 
             migrationBuilder.DropTable(
-                name: "Car");
+                name: "Customer");
 
             migrationBuilder.DropTable(
-                name: "Customer");
+                name: "Car");
         }
     }
 }

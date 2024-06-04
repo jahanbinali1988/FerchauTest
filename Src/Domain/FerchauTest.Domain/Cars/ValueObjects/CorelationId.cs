@@ -26,6 +26,6 @@ namespace FerchauTest.Domain.Cars.ValueObjects
 				throw new InvalidCorelationIdValueException(value!.ToString());
 		}
 
-		public long? Value { get; private set; }
+		public long Value { get; set; }
 	}
 }

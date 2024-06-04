@@ -21,7 +21,7 @@ namespace FerchauTest.Application.Customers.CommandHandlers
 		{
 			var customer = await _customerRepository.GetAsync(request.CustomerId, cancellationToken);
 			if (customer == null)
-				throw new UnableToFindCustomerException(ExceptionsEnum.UnableToFindCustomerException, request.CustomerId.ToString());
+				throw new UnableToFindCustomerException(request.CustomerId.ToString());
 
 			customer.Delete();
 			await _unitOfWork.CommitAsync(cancellationToken);

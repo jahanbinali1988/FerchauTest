@@ -21,7 +21,7 @@ namespace FerchauTest.Application.Customers.CommandHandlers
 		{
 			var customer = await _customerRepository.GetAsync(request.Id, cancellationToken);
 			if (customer == null)
-				throw new UnableToFindCustomerException(ExceptionsEnum.UnableToFindCustomerException, request.Id.ToString());
+				throw new UnableToFindCustomerException(request.Id.ToString());
 
 			customer.Update(request.FirstName, request.LastName, request.PhoneNumber);
 
