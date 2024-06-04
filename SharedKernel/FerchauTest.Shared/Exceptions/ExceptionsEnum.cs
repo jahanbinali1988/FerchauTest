@@ -4,6 +4,11 @@
 	{
 		PhoneNumberLengthIsLongerThanLimitationException,
 		FirstNameLengthIsLongerThanLimitationException,
-		LastNameLengthIsLongerThanLimitationException
+		LastNameLengthIsLongerThanLimitationException,
+		CustomerIdDoesNotExistException,
+		ContractIsNotExistedException,
+		CarHasUnfinishedContractException,
+		BrandLengthIsLongerThanLimitationException,
+		ModelLengthIsLongerThanLimitationException
 	}
 }
