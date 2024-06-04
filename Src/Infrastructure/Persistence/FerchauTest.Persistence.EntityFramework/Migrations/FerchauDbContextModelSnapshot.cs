@@ -66,9 +66,6 @@ namespace FerchauTest.Persistence.EntityFramework.Migrations
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("SYSDATETIMEOFFSET()");
 
-                    b.Property<long?>("CustomerId1")
-                        .HasColumnType("bigint");
-
                     b.Property<DateTimeOffset?>("DeletedAt")
                         .HasColumnType("datetimeoffset");
 
@@ -95,8 +92,6 @@ namespace FerchauTest.Persistence.EntityFramework.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CarId1");
-
-                    b.HasIndex("CustomerId1");
 
                     b.HasIndex("Id")
                         .IsUnique();
@@ -188,17 +183,12 @@ namespace FerchauTest.Persistence.EntityFramework.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FerchauTest.Domain.Customers.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId1");
-
                     b.OwnsOne("FerchauTest.Domain.Cars.ValueObjects.CorelationId", "CarId", b1 =>
                         {
                             b1.Property<long>("ContractId")
                                 .HasColumnType("bigint");
 
-                            b1.Property<long?>("Value")
-                                .IsRequired()
+                            b1.Property<long>("Value")
                                 .HasColumnType("bigint")
                                 .HasColumnName("CarId");
 
@@ -215,8 +205,7 @@ namespace FerchauTest.Persistence.EntityFramework.Migrations
                             b1.Property<long>("ContractId")
                                 .HasColumnType("bigint");
 
-                            b1.Property<long?>("Value")
-                                .IsRequired()
+                            b1.Property<long>("Value")
                                 .HasColumnType("bigint")
                                 .HasColumnName("CustomerId");
 
@@ -232,8 +221,6 @@ namespace FerchauTest.Persistence.EntityFramework.Migrations
 
                     b.Navigation("CarId")
                         .IsRequired();
-
-                    b.Navigation("Customer");
 
                     b.Navigation("CustomerId")
                         .IsRequired();

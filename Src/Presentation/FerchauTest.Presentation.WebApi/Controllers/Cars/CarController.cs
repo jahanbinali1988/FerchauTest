@@ -1,4 +1,5 @@
-﻿using FerchauTest.Application.Contract.Cars.Commands;
+﻿using FerchauTest.Application.Cars.QueryHandlers;
+using FerchauTest.Application.Contract.Cars.Commands;
 using FerchauTest.Application.Contract.Cars.Dtos;
 using FerchauTest.Application.Contract.Cars.Queries;
 using FerchauTest.Presentation.WebApi.Controllers.Cars.Models;
@@ -63,9 +64,44 @@ namespace FerchauTest.Presentation.WebApi.Controllers.Cars
 		{
 			var query = new GetCarByIdQuery(carId);
 
-			var cas = await _mediator.Send(query, cancellationToken);
+			var car = await _mediator.Send(query, cancellationToken);
 
-			return cas;
+			return car;
+		}
+
+		[HttpGet("{carId}/lastContract")]
+		public async Task<CarLastContractDto?> GetCarWithLastContractAsync([FromRoute] long carId, CancellationToken cancellationToken)
+		{
+			var query = new GetCarLastContractByIdQuery(carId);
+
+			var car = await _mediator.Send(query, cancellationToken);
+
+			return car;
+		}
+
+		[HttpPut("{carId}/contract/{customerId}")]
+		public async Task CreateContractAsync([FromRoute] long carId, [FromRoute] long customerId, [FromBody] CreateContractModel model, CancellationToken cancellationToken)
+		{
+			var query = new CreateContractCommand(carId, customerId, model.StartDate, model.EndDate);
+
+			await _mediator.Send(query, cancellationToken);
+		}
+
+		[HttpPut("{carId}/contract/{contractId}/finalize")]
+		public async Task FinalizeContractAsync([FromRoute] long carId, [FromRoute] long contractId, [FromBody] FinalizeContractModel model, CancellationToken cancellationToken)
+		{
+			var command = new FinalizeContractCommand(carId, contractId, model.UsedKilometers);
+
+			await _mediator.Send(command, cancellationToken);
+		}
+
+
+		[HttpGet("contract/history")]
+		public async Task<ReportDto> ContractHistoryAsync([FromQuery] ContractHistoryModel model, CancellationToken cancellationToken)
+		{
+			var query = new ContractHistoryQuery(model.CustomerId, model.PageSize!.Value, model.PageCount!.Value);
+
+			return await _mediator.Send(query, cancellationToken);
 		}
 	}
 }

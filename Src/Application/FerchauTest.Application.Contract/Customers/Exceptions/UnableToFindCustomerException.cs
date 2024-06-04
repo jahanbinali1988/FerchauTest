@@ -5,8 +5,8 @@ namespace FerchauTest.Application.Contract.Customers.Exceptions
 {
 	public class UnableToFindCustomerException : BusinessException
 	{
-		public UnableToFindCustomerException(ExceptionsEnum code, string message)
-			: base(code, $"Unable to find customer with the given id {message}")
+		public UnableToFindCustomerException(string message)
+			: base(ExceptionsEnum.UnableToFindCustomerException, $"Unable to find customer with the given id {message}")
 		{
 		}
 	}

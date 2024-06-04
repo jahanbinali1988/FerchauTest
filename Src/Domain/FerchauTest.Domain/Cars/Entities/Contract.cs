@@ -29,7 +29,6 @@ namespace FerchauTest.Domain.Cars.Entities
 		public int UsedKilometers { get; private set; }
 
 		public CorelationId CustomerId { get; private set; }
-		public Customer Customer { get; private set; }
 		public CorelationId CarId { get; private set; }
 		public Car Car { get; private set; }
 
