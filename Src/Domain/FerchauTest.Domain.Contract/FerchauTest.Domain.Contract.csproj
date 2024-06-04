@@ -10,4 +10,8 @@
     <ProjectReference Include="..\..\..\SharedKernel\FerchauTest.Shared\FerchauTest.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Customers\" />
+  </ItemGroup>
+
 </Project>
