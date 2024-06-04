@@ -1,5 +1,6 @@
 ﻿using FerchauTest.Domain.Cars.Exceptions;
 using FerchauTest.Domain.Cars.ValueObjects;
+using FerchauTest.Domain.Customers;
 using FerchauTest.Domain.Customers.DomainServices;
 using FerchauTest.Shared.SeedWork;
 using FerchauTest.Shared.Shared;
@@ -28,7 +29,9 @@ namespace FerchauTest.Domain.Cars.Entities
 		public int UsedKilometers { get; private set; }
 
 		public CorelationId CustomerId { get; private set; }
+		public Customer Customer { get; private set; }
 		public CorelationId CarId { get; private set; }
+		public Car Car { get; private set; }
 
 		#region PrivateMethods
 		private void SetId(IIdGenerator idGenerator) => base.Id = idGenerator.GetNewId();

@@ -4,14 +4,16 @@ using FerchauTest.Persistence.EntityFramework.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FerchauTest.Persistence.EntityFramework.Migrations
 {
     [DbContext(typeof(FerchauDbContext))]
-    partial class FerchauDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240604134244_first_edition")]
+    partial class first_edition
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

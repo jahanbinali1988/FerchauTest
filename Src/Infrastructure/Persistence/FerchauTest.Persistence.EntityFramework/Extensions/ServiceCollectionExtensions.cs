@@ -6,6 +6,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FerchauTest.Shared.SeedWork;
 using FerchauTest.Shared.EventProcessing.DomainEvent;
+using FerchauTest.Domain.Customers;
+using FerchauTest.Persistence.EntityFramework.Domain.Customers;
+using FerchauTest.Domain.Cars;
+using FerchauTest.Persistence.EntityFramework.Domain.Cars;
+using FerchauTest.Domain.Customers.DomainServices;
 
 namespace FerchauTest.Persistence.EntityFramework.Extensions
 {
@@ -16,6 +21,11 @@ namespace FerchauTest.Persistence.EntityFramework.Extensions
 			var mssqlConnection = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
 			services.AddDbContext<FerchauDbContext>(options => options.
 			   UseSqlServer(mssqlConnection));
+
+			services.AddTransient<ICustomerRepository, CustomerRepository>();
+			services.AddTransient<ICustomerExistenceService, CustomerExistenceService>();
+
+			services.AddTransient<ICarRepository, CarRepository>();
 
 			services.AddTransient<IUnitOfWork, UnitOfWork>();
 			services.AddTransient<IDomainEventsDispatcher, DomainEventsDispatcher>();
