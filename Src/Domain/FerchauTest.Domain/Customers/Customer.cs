@@ -34,6 +34,17 @@ namespace FerchauTest.Domain.Customers
 		{
 			return new Customer(firstname, lastname, phonenumber, idGenerator);
 		}
+		public void Update(string firstname, string lastname, string phonenumber)
+		{
+			SetFirstName(firstname);
+			SetLastName(lastname);
+			SetPhoneNumber(phonenumber);
+			MarkAsUpdated();
+		}
+		public void Delete()
+		{
+			base.MarkAsDeleted();
+		}
 		#endregion
 	}
 }
