@@ -9,5 +9,6 @@ namespace FerchauTest.Domain.Customers
 {
 	public interface ICustomerRepository : IRepository<Customer, long>
 	{
+		Task<bool> AnyAsync(long id);
 	}
 }

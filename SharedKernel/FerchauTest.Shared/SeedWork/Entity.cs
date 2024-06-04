@@ -37,21 +37,20 @@ namespace FerchauTest.Shared.SeedWork
 			_domainEvents?.Clear();
 		}
 
-		protected static async Task CheckRule(IBusinessRule rule)
-		{
-			if (await rule.IsBroken())
-			{
-				throw new BusinessRuleValidationException(rule, rule.Properties, rule.ErrorType);
-			}
-		}
-
-		internal void MarkAsUpdated()
+		public void MarkAsUpdated()
 		{
 			ModifiedAt = DateTimeOffset.Now;
 		}
 
+		public void MarkAsDeleted()
+		{
+			ModifiedAt = DateTimeOffset.Now;
+			IsDeleted = true;
+		}
+
 		public TKey Id { get; protected set; }
 
+		public bool IsDeleted { get; private set; }
 
 		/// <summary>
 		/// Row version
