@@ -1,10 +1,5 @@
 ﻿using FerchauTest.Persistence.EntityFramework.Persistence;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Hosting;
 using FerchauTest.Shared.Shared;
 using Microsoft.EntityFrameworkCore;
 using FerchauTest.Presentation.WebApi.Extensions;
@@ -45,10 +40,10 @@ namespace FerchauTest.Presentation.WebApi
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
-			//using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-			//{
-			//	scope.ServiceProvider.GetRequiredService<FerchauDbContext>().Database.Migrate();
-			//}
+			using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+			{
+				scope.ServiceProvider.GetRequiredService<FerchauDbContext>().Database.Migrate();
+			}
 			if (_env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();

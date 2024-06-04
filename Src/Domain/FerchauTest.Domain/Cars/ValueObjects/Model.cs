@@ -1,5 +1,5 @@
 ﻿using FerchauTest.Domain.Cars.Constants;
-using FerchauTest.Domain.Customers.Exceptions;
+using FerchauTest.Domain.Cars.Exceptions;
 using FerchauTest.Shared.SeedWork;
 
 namespace FerchauTest.Domain.Cars.ValueObjects

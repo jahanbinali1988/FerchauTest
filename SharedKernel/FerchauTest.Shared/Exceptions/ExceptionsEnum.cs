@@ -9,6 +9,7 @@
 		ContractIsNotExistedException,
 		CarHasUnfinishedContractException,
 		BrandLengthIsLongerThanLimitationException,
-		ModelLengthIsLongerThanLimitationException
+		ModelLengthIsLongerThanLimitationException,
+		UnableToFindCustomerException
 	}
 }

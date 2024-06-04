@@ -1,6 +1,5 @@
 ﻿using FerchauTest.Domain.Cars.Constants;
 using FerchauTest.Domain.Cars.Exceptions;
-using FerchauTest.Domain.Customers.Exceptions;
 using Shouldly;
 using System;
 using System.Collections.Generic;

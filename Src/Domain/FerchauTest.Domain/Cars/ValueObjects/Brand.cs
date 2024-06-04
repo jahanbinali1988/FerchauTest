@@ -1,12 +1,6 @@
 ﻿using FerchauTest.Domain.Cars.Constants;
-using FerchauTest.Domain.Customers.Exceptions;
-using FerchauTest.Domain.Customers.ValueObjects;
+using FerchauTest.Domain.Cars.Exceptions;
 using FerchauTest.Shared.SeedWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FerchauTest.Domain.Cars.ValueObjects
 {
