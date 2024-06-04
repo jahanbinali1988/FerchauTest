@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FerchauTest.Domain.Cars
 {
-	public interface ICarRepository : IRepository<Customer, long>
+	public interface ICarRepository : IRepository<Car, long>
 	{
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using FerchauTest.Shared.Exceptions;
 using FerchauTest.Shared.SeedWork;
 
-namespace FerchauTest.Domain.Customers.Exceptions
+namespace FerchauTest.Domain.Cars.Exceptions
 {
 	public class ModelLengthIsLongerThanLimitationException : BusinessException
 	{
