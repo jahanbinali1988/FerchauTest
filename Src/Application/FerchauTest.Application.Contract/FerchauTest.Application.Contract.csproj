@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SharedKernel\FerchauTest.Shared\FerchauTest.Shared.csproj" />
+    <ProjectReference Include="..\..\Domain\FerchauTest.Domain.Contract\FerchauTest.Domain.Contract.csproj" />
+  </ItemGroup>
+
+</Project>

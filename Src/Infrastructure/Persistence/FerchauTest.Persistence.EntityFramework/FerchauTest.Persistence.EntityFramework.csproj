@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\SharedKernel\FerchauTest.Shared\FerchauTest.Shared.csproj" />
+		<ProjectReference Include="..\..\..\Domain\FerchauTest.Domain\FerchauTest.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" />
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Domain\" />
+	</ItemGroup>
+</Project>
