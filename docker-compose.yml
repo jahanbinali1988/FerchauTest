@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  mssqlserver:
+    image:  mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
+    volumes:
+      - ${WEBAPP_STORAGE_HOME}/site:/data/mssqlserver
+    environment: 
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Jahan*0021
+      - MSSQL_PID=Evaluation
+    ports:
+      - 1433:1433
+
+  ferchautest.presentation.webapi:
+    image: ${DOCKER_REGISTRY-}ferchautestpresentationwebapi
+    restart: always
+    build:
+      context: .
+      dockerfile: Src/Presentation/FerchauTest.Presentation.WebApi/Dockerfile
+    ports:
+      - "54956:80"
+      - "44346:443"
+    depends_on:
+      - "mssqlserver"
+    volumes:
+      - ${HOME}/.microsoft/usersecrets/:/root/.microsoft/usersecrets
+      - ${HOME}/.aspnet/https:/root/.aspnet/https/
