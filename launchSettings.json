@@ -1,12 +1,30 @@
 {
-  "profiles": {
-    "Docker Compose": {
-      "commandName": "DockerCompose",
-      "commandVersion": "1.0",
-        "serviceActions": {
-            "ferchautest.presentation.webapi": "StartDebugging",
-            "mssqlserver": "StartWithoutDebugging"
+    "profiles": {
+        "Docker Compose": {
+            "commandName": "DockerCompose",
+            "commandVersion": "1.0",
+            "serviceActions": {
+                "ferchautest.presentation.webapi": "StartDebugging",
+                "mssqlserver": "StartWithoutDebugging"
+            }
+        },
+        "http": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "applicationUrl": "http://localhost:54956",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        "https": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "applicationUrl": "https://localhost:44346",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
         }
     }
-  }
 }

@@ -44,14 +44,12 @@ namespace FerchauTest.Presentation.WebApi
 			{
 				scope.ServiceProvider.GetRequiredService<FerchauDbContext>().Database.Migrate();
 			}
-			if (_env.IsDevelopment())
-			{
-				app.UseDeveloperExceptionPage();
-				app.UseSwagger();
-				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sample v1"));
-			}
 
-			app.UseHttpsRedirection();
+			app.UseDeveloperExceptionPage();
+			app.UseSwagger();
+			app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sample v1"));
+
+			//app.UseHttpsRedirection();
 
 			app.UseRouting();
 

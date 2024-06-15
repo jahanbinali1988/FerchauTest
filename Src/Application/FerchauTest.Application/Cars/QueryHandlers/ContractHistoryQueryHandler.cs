@@ -27,15 +27,18 @@ namespace FerchauTest.Application.Cars.QueryHandlers
 
 			foreach (var customerId in customers)
 			{
-				var customer = _dbContext.Customers.First(c => c.Id == customerId);
-				var customerHistory = await GetCustomerHistoryAsync(customerId);
-				customersHistory.Add(new CustomerHistoryDto()
+				var customer = await _dbContext.Customers.FirstOrDefaultAsync(c => c.Id == customerId);
+				if(customer != null)
 				{
-					Contracts = customerHistory,
-					CustomerId = customerId,
-					FirstName = customer.Firstname.Value,
-					LastName = customer.Lastname.Value
-				});
+					var customerHistory = await GetCustomerHistoryAsync(customerId);
+					customersHistory.Add(new CustomerHistoryDto()
+					{
+						Contracts = customerHistory,
+						CustomerId = customerId,
+						FirstName = customer.Firstname.Value,
+						LastName = customer.Lastname.Value
+					});
+				}
 			}
 
 			return new ReportDto()
